@@ -1,0 +1,21 @@
+<template>
+    <lightning-card title="Quick Record Create" icon-name="custom:custom1">
+        <lightning-tabset variant="vertical">
+            <template for:each={sObjectToFlowMap} for:item="obj">
+                <lightning-tab
+                    label={obj.sObject}
+                    key={obj.sObject}
+                    value={obj.sObject}
+                    onactive={handleTabActive}
+                >
+                    <lightning-flow
+                        flow-api-name={obj.flowName}
+                        onstatuschange={handleAccountStatusChange}
+                        flow-input-variables={inputVariables}
+                    >
+                    </lightning-flow>
+                </lightning-tab>
+            </template>
+        </lightning-tabset>
+    </lightning-card>
+</template>
